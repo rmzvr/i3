@@ -165,10 +165,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i ~/Pictures/w
 exec --no-startup-id nm-applet
 
 # Volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &>
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &>
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refr>
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &>
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -190,3 +190,6 @@ bindsym $mod+f exec --no-startup-id thunar
 # Terminal
 bindsym $mod+t exec --no-startup-id xfce4-terminal
 bindsym $mod+Return exec --no-startup-id xfce4-terminal
+
+# Browser
+bindsym $mod+w exec --no-startup-id firefox
